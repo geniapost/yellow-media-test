@@ -14,6 +14,9 @@ Route::group(['namespace' => 'Api\v1',
                             Route::post('authenticate', 'UserController@authenticate');
                             Route::group(['middleware' => 'auth:api'], function (){
                                 Route::post('recover-password','UserController@recoverPassword');
+                                Route::get('companies','CompanyController@show');
+                                Route::post('companies','CompanyController@store');
                             });
                         });
-            });
+            },
+);
